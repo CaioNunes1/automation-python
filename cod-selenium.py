@@ -14,5 +14,14 @@ for botao in lista_botoes:
         botao.click()
         break
 
+#selecionar uma aba
+abas = navegador.window_handles
+navegador.switch_to.window(abas[1])
+
+navegador.get("https://www.hashtagtreinamentos.com/curso-python")
+
+campo_nome=navegador.find_element("id","firstname").send_keys("Caio")
+campo_nome=navegador.find_element("id","email").send_keys("email@aleatorio.com")
+campo_nome=navegador.find_element("id","phone").send_keys("1234")
 #botao_verde.click()
-time.sleep(20)
+time.sleep(30)
