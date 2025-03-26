@@ -14,14 +14,21 @@ for botao in lista_botoes:
         botao.click()
         break
 
+navegador.get("https://www.hashtagtreinamentos.com/curso-python")
+
 #selecionar uma aba
 abas = navegador.window_handles
-navegador.switch_to.window(abas[1])
+navegador.switch_to.window(abas[0])
 
-navegador.get("https://www.hashtagtreinamentos.com/curso-python")
+
 
 campo_nome=navegador.find_element("id","firstname").send_keys("Caio")
 campo_nome=navegador.find_element("id","email").send_keys("email@aleatorio.com")
 campo_nome=navegador.find_element("id","phone").send_keys("1234")
-#botao_verde.click()
+
+botao_para_clicar=navegador.find_element("id",'_form_2475_submit').click()
+#aqui passando o botao_para_clicar como argumento para ser centralizado na pagina do javascript
+navegador.execute_script("arguments[0]scrollIntoView({block:'center'})",botao_para_clicar)
+
+navegador.find_element("id",'_form_2475_submit').click()
 time.sleep(30)
