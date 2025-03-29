@@ -28,7 +28,16 @@ campo_nome=navegador.find_element("id","phone").send_keys("1234")
 
 botao_para_clicar=navegador.find_element("id",'_form_2475_submit').click()
 #aqui passando o botao_para_clicar como argumento para ser centralizado na pagina do javascript
-navegador.execute_script("arguments[0]scrollIntoView({block:'center'})",botao_para_clicar)
+navegador.execute_script("arguments[0].scrollIntoView({block:'center'})",botao_para_clicar)
 
-navegador.find_element("id",'_form_2475_submit').click()
+#espera
+#time.sleep(3)
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+espera= WebDriverWait(navegador,10)
+espera.until(EC.element_to_be_clickable(botao_para_clicar))
+
+botao_para_clicar.click()
 time.sleep(30)
